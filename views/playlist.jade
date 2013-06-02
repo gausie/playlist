@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Create your playlist here
+  input#playlist(type='hidden',name='playlist',value='#{playlist}')
+  form
+    div#add.input-append.btn-group
+        input(type='url',placeholder='http://youtu.be/xxxxxx')
+        button(type='submit').btn.btn-primary.add-on.form-height-fix Add
+    div.input-append.btn-group
+      button#go-to-player.btn Go to player
+
+  section#list
+
+  script(src='//code.jquery.com/jquery-1.10.0.min.js')
+  script(src='/javascripts/playlist.js')

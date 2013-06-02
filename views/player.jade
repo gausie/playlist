@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	input#playlist(type='hidden',name='playlist',value='#{playlist}')
+
+	div#player
+	
+	script(src='//code.jquery.com/jquery-1.10.0.min.js')
+	script(src='/javascripts/tubeplayer.js')
+	script(src='/javascripts/player.js')

@@ -11,7 +11,7 @@ Anyone can create a playlist, add tracks (via YouTube links), and vote them up a
 ***
 
 ####Installation & Setup
-This assumes you already have node.js & npm installed.
+This assumes you already have node.js, npm and MongoDB installed.
 ```
 git clone git://github.com/gausie/playlist.git playlist
 cd playlist

@@ -4,6 +4,7 @@
   
 var Song = require('../models/song.js')
   , Playlist = require('../models/playlist.js')
+	, _ = require('underscore')
 	, ytid = require('get-youtube-id')
 	, vi = require('videoinfo')
 	, sid = require('short-mongo-id');
@@ -16,8 +17,16 @@ exports.generate = function(req, res){
 };
 
 exports.list = function(req, res){
-  Song.find({ playlist: req.params.playlist }).sort('-total createdAt').exec(function(err, songs) {
-    res.send(songs);
+  Song.find({ playlist: req.params.playlist }).sort('-total createdAt').exec(function(err, data) {
+		var songs = {
+			'songs': []
+		}
+		var i = 0;
+		_.each(data, function(d){
+			d._doc.order = i++;
+			songs.songs.push(d);
+		});
+		res.send(songs);
   });
 };
 

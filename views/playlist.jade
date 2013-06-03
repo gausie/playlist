@@ -10,7 +10,19 @@ block content
     div.input-append.btn-group
       button#go-to-player.btn Go to player
 
-  section#list
+  section#list(data-bind='foreach:songs.songs')
+    div(data-bind='attr: { "data-order": order },sorted:order')
+      div.input-prepend
+        button.add-on.upvote.form-height-fix(data-bind='click:$root.upvote')
+          i.icon-circle-arrow-up
+          span(data-bind='text:upvotes')
+        button.add-on.downvote.form-height-fix(data-bind='click:$root.downvote')
+          i.icon-circle-arrow-down
+          span(data-bind='text:downvotes')
+        input(type='text',disabled,style='width:350px',data-bind='value:title')
 
   script(src='//code.jquery.com/jquery-1.10.0.min.js')
+  script(src='/javascripts/jquery.tinysort.min.js')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js')
+  script(src='/javascripts/knockout.viewmodel.min.js')
   script(src='/javascripts/playlist.js')

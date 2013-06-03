@@ -1,6 +1,6 @@
 # Playlist
 
-A collaborative playlist manager for hackathons etc written in node.
+A collaborative playlist manager for hackathons etc written in node. You can try out a demo [here](http://playlist.gaus.ie).
 
 ***
 

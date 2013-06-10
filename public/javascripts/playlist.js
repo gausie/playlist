@@ -10,8 +10,18 @@ function SongsViewModel() {
 	var model = {
 		'songs': []
 	};
+  
+  self.playlist = $('#playlist').val();
 	
-	self.playlist = $('#playlist').val();
+  self.add = function(element){
+    var input = $('input',element).val();
+    $.post("/api/"+self.playlist+"/add", {
+      url: input
+    }, function(){
+      self.sync();
+    });
+    return false;
+  }
 	
 	self.songs = ko.viewmodel.fromModel(model,{
 		arrayChildId:{

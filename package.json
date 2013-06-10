@@ -12,8 +12,8 @@
     "mongoose": "*",
     "short-mongo-id": "0.1.1",
     "stylus": "*",
-    "videoinfo": "0.1.8",
-    "underscore": "~1.4.4"
+    "underscore": "~1.4.4",
+    "youtube-feeds": "~2.2.1"
   },
   "readmeFilename": "README.md",
   "description": "A collaborative playlist manager for hackathons etc written in node.",

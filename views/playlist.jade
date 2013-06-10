@@ -3,7 +3,7 @@ extends layout
 block content
   h1 Create your playlist here
   input#playlist(type='hidden',name='playlist',value='#{playlist}')
-  form
+  form(data-bind='submit:add')
     div#add.input-append.btn-group
         input(type='url',placeholder='http://youtu.be/xxxxxx')
         button(type='submit').btn.btn-primary.add-on.form-height-fix Add

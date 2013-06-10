@@ -6,7 +6,7 @@ var Song = require('../models/song.js')
   , Playlist = require('../models/playlist.js')
 	, _ = require('underscore')
 	, ytid = require('get-youtube-id')
-	, vi = require('videoinfo')
+	, youtube = require('youtube-feeds')
 	, sid = require('short-mongo-id');
 
 exports.generate = function(req, res){
@@ -35,10 +35,11 @@ exports.add = function(req, res){
 		//todo Validate req.body.url as a URL
 		res.send("No URL received.");
 	}
-	vi.fetch(req.body.url, function (err,data) {
+  var videoid = ytid(req.body.url);
+	youtube.video(videoid, function (err,data) {
 		var song = new Song({
 			playlist: req.params.playlist,
-			url: ytid(req.body.url),
+			url: videoid,
 			title: data.title
 		});
 		song.save();
